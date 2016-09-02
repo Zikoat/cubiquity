@@ -72,18 +72,20 @@ public class ProceduralTerrainVolume : MonoBehaviour
 					// Get the noise value for the current position.
 					// Returned value should be in the range -1 to +1.
 					float simplexNoiseValue = SimplexNoise.Noise.Generate(sampleX, sampleY, sampleZ);
-					
+					//-------------------------------------------------------------------------------------
+                    // DONT WANT THIS   
 					// We want to fade off the noise towards the top of the volume (so that the rocks don't go
 					// up to the sky) adn add extra material near the bottom of the volume (to create a floor).
 					// This altitude value is initially in the range from 0 to +1.
-					float altitude = (float)(y + 1) / (float)height;
+					// float altitude = (float)(y + 1) / (float)height;
 					
 					// Map the altitude to the range -1.0 to +1.0...
-					altitude = (altitude * 2.0f) - 1.0f;
+					//altitude = (altitude * 2.0f) - 1.0f;
 					
 					// Subtract the altitude from the noise. This adds
 					// material near the ground and subtracts it higher up.					
-					 simplexNoiseValue -= altitude; // -----------------------------------------------------------------------------
+					// simplexNoiseValue -= altitude; '
+                    // -----------------------------------------------------------------------------
 					
 					// After combining our noise value and our altitude we now have values between -2.0 and 2.0.
 					// Cubiquity renders anything below the threshold as empty and anythng above as solid, but
@@ -126,6 +128,7 @@ public class ProceduralTerrainVolume : MonoBehaviour
 				}
 			}
 		}
-		data.CommitChanges();
+        // this saves the map to the previously specified path
+		// data.CommitChanges();
 	}
 }

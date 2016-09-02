@@ -79,8 +79,8 @@ public class SimpleTerrainVolume : MonoBehaviour
         terrainVolume.data = volumeData;
 
         // Add the renderer
-		TerrainVolumeRenderer terrainVolumeRenderer = gameObject.AddComponent<TerrainVolumeRenderer>() as TerrainVolumeRenderer;
-		TerrainVolumeCollider terrainVolumeCollider = gameObject.AddComponent<TerrainVolumeCollider>() as TerrainVolumeCollider;
+		/*TerrainVolumeRenderer terrainVolumeRenderer = */gameObject.AddComponent<TerrainVolumeRenderer>();// as TerrainVolumeRenderer;
+		/*TerrainVolumeCollider terrainVolumeCollider = */gameObject.AddComponent<TerrainVolumeCollider>();// as TerrainVolumeCollider;
 
 		stopwatch.Stop();
 		Debug.Log (stopwatch.ElapsedMilliseconds + " ms");
