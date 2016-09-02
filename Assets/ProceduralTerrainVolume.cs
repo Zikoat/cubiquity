@@ -111,7 +111,7 @@ public class ProceduralTerrainVolume : MonoBehaviour
 					// This means we want to set the sum of the materials to 255 if the voxel is below the floor height.
 					// We don't want to interfere with the rocks on the transition between the material so we work out
 					// how much extra we have to add to get to 255 and then add that to either soil or grass.
-					byte excess = (byte)(255 - materialSet.weights[2]);					
+					/*byte excess = (byte)(255 - materialSet.weights[2]);					
 					if(y < 11)
 					{
 						// Add to soil material channel.
@@ -121,7 +121,7 @@ public class ProceduralTerrainVolume : MonoBehaviour
 					{
 						// Add to grass material channel.
 						materialSet.weights[0] = excess;
-					}
+					}*/
 					
 					// We can now write our computed voxel value into the volume.
 					data.SetVoxel(x, y, z, materialSet);
