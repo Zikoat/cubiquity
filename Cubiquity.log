@@ -1,21 +1,26 @@
 ********************************************************************************
 *                             Initializing Cubiquity                           *
 ********************************************************************************
-[21:21:37, Info   ]: Creating voxel database from 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-296002784.vdb'
-[21:21:37, Error  ]: Encountered 'unable to open database file' (error code 14) when executing 'sqlite3_open_v2(pathToExistingVoxelDatabase.c_str(), &(voxelDatabase->mDatabase), flags, NULL)'
-[21:21:37, Error  ]: Caught 'DatabaseError' at C interface. Message reads: "Encountered 'unable to open database file' (error code 14) when executing 'sqlite3_open_v2(pathToExistingVoxelDatabase.c_str(), &(voxelDatabase->mDatabase), flags, NULL)'"
-[21:21:38, Info   ]: Creating empty voxel database as 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-1731854151.vdb'
-[21:21:46, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
-[21:21:48, Info   ]: Creating voxel database from 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-1731854151.vdb'
-[21:23:56, Info   ]: Creating empty voxel database as 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-303657477.vdb'
-[21:24:06, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
-[21:24:06, Info   ]: Creating empty voxel database as 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-1943132382.vdb'
-[22:24:49, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
-[22:24:51, Info   ]: Creating empty voxel database as 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-252474662.vdb'
-[22:25:24, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
-[22:25:24, Info   ]: Creating empty voxel database as 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-524875430.vdb'
-[00:07:37, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
-********************************************************************************
-*                             Shutting down Cubiquity                          *
-********************************************************************************
-
+[08:46:11, Info   ]: Creating voxel database from 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-296002784.vdb'
+[08:46:11, Error  ]: Encountered 'unable to open database file' (error code 14) when executing 'sqlite3_open_v2(pathToExistingVoxelDatabase.c_str(), &(voxelDatabase->mDatabase), flags, NULL)'
+[08:46:11, Error  ]: Caught 'DatabaseError' at C interface. Message reads: "Encountered 'unable to open database file' (error code 14) when executing 'sqlite3_open_v2(pathToExistingVoxelDatabase.c_str(), &(voxelDatabase->mDatabase), flags, NULL)'"
+[08:46:17, Info   ]: Creating voxel database from 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-296002784.vdb'
+[08:46:17, Error  ]: Encountered 'unable to open database file' (error code 14) when executing 'sqlite3_open_v2(pathToExistingVoxelDatabase.c_str(), &(voxelDatabase->mDatabase), flags, NULL)'
+[08:46:17, Error  ]: Caught 'DatabaseError' at C interface. Message reads: "Encountered 'unable to open database file' (error code 14) when executing 'sqlite3_open_v2(pathToExistingVoxelDatabase.c_str(), &(voxelDatabase->mDatabase), flags, NULL)'"
+[08:47:50, Info   ]: Creating empty voxel database as 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-1047061570.vdb'
+[08:52:31, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
+[08:52:36, Info   ]: Creating empty voxel database as 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-430835371.vdb'
+[08:52:49, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
+[08:52:50, Info   ]: Creating empty voxel database as 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-269451581.vdb'
+[09:08:58, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
+[09:09:05, Info   ]: Creating voxel database from 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-269451581.vdb'
+[09:09:08, Info   ]: Creating empty voxel database as 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-409241301.vdb'
+[09:09:20, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
+[09:09:20, Info   ]: Creating empty voxel database as 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-1400201221.vdb'
+[10:08:58, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
+[10:09:19, Info   ]: Creating voxel database from 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-1400201221.vdb'
+[10:15:01, Info   ]: Creating empty voxel database as 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-104691784.vdb'
+[10:15:15, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
+[10:15:15, Info   ]: Creating empty voxel database as 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-278444707.vdb'
+[10:18:50, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
+[10:18:52, Info   ]: Creating empty voxel database as 'C:/Workspace/Unity Projects/cubiquity/Assets/StreamingAssets/Cubiquity/VoxelDatabases/3d-simplex-noise-1483662683.vdb'
