@@ -6,11 +6,12 @@ public class player : MonoBehaviour {
 	public float speed = 4;
 	// Use this for initialization
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    // Update is called once per frame
+    void Update () {
 		RaycastHit hit;
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast (ray, out hit)) {

@@ -17,8 +17,10 @@ public class ProceduralTerrainVolume : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		// The size of the volume we will generate
-		int width = 128;
+        System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+        // The size of the volume we will generate
+        int width = 128;
 		int height = 64;
 		int depth = 128;
 		
@@ -129,6 +131,16 @@ public class ProceduralTerrainVolume : MonoBehaviour
 			}
 		}
         // this saves the map to the previously specified path
-		// data.CommitChanges();
-	}
+        // data.CommitChanges();
+        volume.OnMeshSyncComplete += unFreezePlayer;
+        stopwatch.Stop();
+        Debug.Log(stopwatch.ElapsedMilliseconds + " ms");
+    }
+
+    void unFreezePlayer()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Rigidbody playerRB = player.GetComponent<Rigidbody>();
+        playerRB.constraints = RigidbodyConstraints.None;  
+    }
 }
