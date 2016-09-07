@@ -20,19 +20,12 @@ public class ProceduralTerrainVolume : MonoBehaviour
         System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
         // The size of the volume we will generate
-        int width = 128;
+        int width = 64;
 		int height = 64;
-		int depth = 128;
+		int depth = 64;
 		
-		// FIXME - Where should we delete this?
-		/// [DoxygenSnippet-CreateEmptyTerrainVolumeData]
-		System.Random randomIntGenerator = new System.Random();
-		int randomInt = randomIntGenerator.Next();
-		string saveLocation = Paths.voxelDatabases + "/3d-simplex-noise-" + randomInt + ".vdb";
-
 		//Create an empty TerrainVolumeData with dimensions width * height * depth
-		TerrainVolumeData data = VolumeData.CreateEmptyVolumeData<TerrainVolumeData>(new Region(0, 0, 0, width-1, height-1, depth-1), saveLocation);
-		/// [DoxygenSnippet-CreateEmptyTerrainVolumeData]
+		TerrainVolumeData data = VolumeData.CreateEmptyVolumeData<TerrainVolumeData>(new Region(0, 0, 0, width-1, height-1, depth-1));
 		
 		TerrainVolume volume = GetComponent<TerrainVolume>();
 		TerrainVolumeRenderer volumeRenderer = GetComponent<TerrainVolumeRenderer>();
