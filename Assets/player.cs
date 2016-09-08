@@ -13,16 +13,26 @@ public class player : MonoBehaviour {
         rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
+    void OnDrawGizmos()
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.DrawRay(hit.point, hit.normal, Color.magenta);
+            
+            Vector3 nearestCube = new Vector3();
+            nearestCube.x = Mathf.RoundToInt(hit.point.x);
+            nearestCube.y = Mathf.RoundToInt(hit.point.y);
+            nearestCube.z = Mathf.RoundToInt(hit.point.z);
+            Gizmos.DrawSphere(nearestCube, 0.3f);
+            
+        }
+    }
+
     // Update is called once per frame
     void Update () {
-		RaycastHit hit;
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast (ray, out hit)) {
-			Debug.DrawRay (hit.point, hit.normal * 2, Color.magenta);
-			if (Input.GetMouseButton (0)) {
-				Debug.Log (hit.normal);
-			}
-		}
+		
 		Debug.DrawRay (transform.position, transform.forward, Color.blue, 0, false);
 
         if (Input.GetKeyDown(KeyCode.Space))

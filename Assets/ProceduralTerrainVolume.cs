@@ -130,6 +130,35 @@ public class ProceduralTerrainVolume : MonoBehaviour
         Debug.Log(stopwatch.ElapsedMilliseconds + " ms");
     }
 
+    void Update ()
+    {
+        TerrainVolume volume = GetComponent<TerrainVolume>();
+        MaterialSet air = new MaterialSet();
+        air.weights[0] = 0;
+        air.weights[1] = 0;
+        air.weights[2] = 0;
+
+        Vector3 nearestCube = new Vector3();
+
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.DrawRay(hit.point, hit.normal, Color.magenta);
+            nearestCube.x = Mathf.RoundToInt(hit.point.x);
+            nearestCube.y = Mathf.RoundToInt(hit.point.y);
+            nearestCube.z = Mathf.RoundToInt(hit.point.z);
+            
+        }
+        if(Input.GetMouseButtonDown(0))
+            volume.data.SetVoxel(
+                (int)nearestCube.x, 
+                (int)nearestCube.y, 
+                (int)nearestCube.z, 
+                air);
+
+    }
+
     void unFreezePlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
