@@ -2,10 +2,13 @@
 using System.Collections;
 
 public class player : MonoBehaviour {
-	[Range(1,10)]
-	public float speed = 4;
-	// Use this for initialization
-	void Start () {
+    [Range(1, 10)]
+    public float speed = 4;
+    [Range(1, 10)]
+    public float jumpHeight = 7;
+
+    // Use this for initialization
+    void Start () {
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeAll;
     }
@@ -21,6 +24,12 @@ public class player : MonoBehaviour {
 			}
 		}
 		Debug.DrawRay (transform.position, transform.forward, Color.blue, 0, false);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GetComponent<Rigidbody>().AddForce(transform.up * jumpHeight, ForceMode.Impulse);
+            Debug.Log("jump");
+        }
 	}
 
 	void FixedUpdate() {
