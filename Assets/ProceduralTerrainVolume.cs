@@ -59,66 +59,18 @@ public class ProceduralTerrainVolume : MonoBehaviour
 					materialSet.weights[1] = 0;
 					materialSet.weights[2] = 0;
 					
-					// Simplex noise is quite high frequency. We scale the sample position to reduce this.
 					float sampleX = (float)x * invRockScale;
 					float sampleY = (float)y * invRockScale;
 					float sampleZ = (float)z * invRockScale;
-					
-					// Get the noise value for the current position.
-					// Returned value should be in the range -1 to +1.
-					float simplexNoiseValue = SimplexNoise.Noise.Generate(sampleX, sampleY, sampleZ);
-					//-------------------------------------------------------------------------------------
-                    // DONT WANT THIS   
-					// We want to fade off the noise towards the top of the volume (so that the rocks don't go
-					// up to the sky) adn add extra material near the bottom of the volume (to create a floor).
-					// This altitude value is initially in the range from 0 to +1.
-					// float altitude = (float)(y + 1) / (float)height;
-					
-					// Map the altitude to the range -1.0 to +1.0...
-					//altitude = (altitude * 2.0f) - 1.0f;
-					
-					// Subtract the altitude from the noise. This adds
-					// material near the ground and subtracts it higher up.					
-					// simplexNoiseValue -= altitude; '
-                    // -----------------------------------------------------------------------------
-					
-					// After combining our noise value and our altitude we now have values between -2.0 and 2.0.
-					// Cubiquity renders anything below the threshold as empty and anythng above as solid, but
-					// in general it is easiest if empty space is completly empty and solid space is completly
-					// solid. The exception to this is the region near our surface, where a gentle transition helps
-					// obtain smooth shading. By scaling by a large number and then clamping we achieve this effect
-					// of making most voxels fully solid or fully empty except near the surface..
+
+                    float simplexNoiseValue = SimplexNoise.Noise.Generate(sampleX, sampleY, sampleZ);
 					simplexNoiseValue *= 5.0f;
 					simplexNoiseValue = Mathf.Clamp(simplexNoiseValue, -0.5f, 0.5f);
-					
-					// Go back to the range 0.0 to 1.0;
 					simplexNoiseValue += 0.5f;
-					
-					// And then to 0 to 255, ready to convert into a byte.
 					simplexNoiseValue *= 255;
 					
-					// Write the final value value into the third material channel (the one with the rock texture).
-					// The value being written is usually 0 (empty) or 255 (solid) except around the transition.
 					materialSet.weights[2] = (byte)simplexNoiseValue;
 					
-					
-					// Lastly we write soil or grass voxels into the volume to create a level floor between the rocks.
-					// This means we want to set the sum of the materials to 255 if the voxel is below the floor height.
-					// We don't want to interfere with the rocks on the transition between the material so we work out
-					// how much extra we have to add to get to 255 and then add that to either soil or grass.
-					/*byte excess = (byte)(255 - materialSet.weights[2]);					
-					if(y < 11)
-					{
-						// Add to soil material channel.
-						materialSet.weights[1] = excess;
-					}
-					else if(y < 12)
-					{
-						// Add to grass material channel.
-						materialSet.weights[0] = excess;
-					}*/
-					
-					// We can now write our computed voxel value into the volume.
 					data.SetVoxel(x, y, z, materialSet);
 				}
 			}
@@ -128,6 +80,35 @@ public class ProceduralTerrainVolume : MonoBehaviour
         volume.OnMeshSyncComplete += unFreezePlayer;
         stopwatch.Stop();
         Debug.Log(stopwatch.ElapsedMilliseconds + " ms");
+    }
+
+    void Update ()
+    {
+        TerrainVolume volume = GetComponent<TerrainVolume>();
+        MaterialSet air = new MaterialSet();
+        air.weights[0] = 0;
+        air.weights[1] = 0;
+        air.weights[2] = 0;
+
+        Vector3 nearestCube = new Vector3();
+
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.DrawRay(hit.point, hit.normal, Color.magenta);
+            nearestCube.x = Mathf.RoundToInt(hit.point.x);
+            nearestCube.y = Mathf.RoundToInt(hit.point.y);
+            nearestCube.z = Mathf.RoundToInt(hit.point.z);
+            
+        }
+        if(Input.GetMouseButtonDown(0))
+            volume.data.SetVoxel(
+                (int)nearestCube.x, 
+                (int)nearestCube.y, 
+                (int)nearestCube.z, 
+                air);
+
     }
 
     void unFreezePlayer()
