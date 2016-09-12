@@ -31,10 +31,7 @@ public class player : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-<<<<<<< HEAD
-=======
-		
+    void Update () {		
 		Debug.DrawRay (transform.position, transform.forward, Color.blue, 0, false);
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -42,7 +39,6 @@ public class player : MonoBehaviour {
             GetComponent<Rigidbody>().AddForce(transform.up * jumpHeight, ForceMode.Impulse);
             Debug.Log("jump");
         }
->>>>>>> origin/master
 	}
 
 	void FixedUpdate() {

@@ -4,7 +4,6 @@ using Cubiquity;
 
 public class gravity : MonoBehaviour {
 
-public class gravity : MonoBehaviour {
     public int gravityRadius = 4;
     public int gravityCheckRadius = 4;
     // Use this for initialization
