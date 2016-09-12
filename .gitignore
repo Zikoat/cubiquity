@@ -32,5 +32,6 @@ sysinfo.txt
 
 # cubiquity files. i dont want the log, nor the databases, as these are generated on the fly, and usually create errors
 *Cubiquity.log
+Cubiquity.log
 *.vdb
 *.vdb.meta
