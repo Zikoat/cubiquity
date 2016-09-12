@@ -1,10 +1,20 @@
 ********************************************************************************
 *                             Initializing Cubiquity                           *
 ********************************************************************************
-[09:50:08, Info   ]: Creating empty voxel database as 'C:/Users/XXCANC~1/AppData/Local/Temp/DefaultCompany/cubiquity/05536D05.vdb'
-[10:01:06, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
-[10:01:08, Info   ]: Creating voxel database from 'C:/Users/XXCANC~1/AppData/Local/Temp/DefaultCompany/cubiquity/05536D05.vdb'
-[10:08:24, Info   ]: Creating voxel database from 'C:/Users/XXCANC~1/AppData/Local/Temp/DefaultCompany/cubiquity/05536D05.vdb'
+[10:13:06, Info   ]: Creating empty voxel database as 'C:/Users/XXCANC~1/AppData/Local/Temp/DefaultCompany/cubiquity/31EB9DDB.vdb'
+[10:13:16, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
+[10:13:18, Info   ]: Creating empty voxel database as 'C:/Users/XXCANC~1/AppData/Local/Temp/DefaultCompany/cubiquity/23BE93B0.vdb'
+[10:13:37, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
+[10:13:37, Info   ]: Creating empty voxel database as 'C:/Users/XXCANC~1/AppData/Local/Temp/DefaultCompany/cubiquity/688038BF.vdb'
+[10:13:39, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
+[10:13:40, Info   ]: Creating empty voxel database as 'C:/Users/XXCANC~1/AppData/Local/Temp/DefaultCompany/cubiquity/0DE98502.vdb'
+[10:13:47, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
+[10:13:47, Info   ]: Creating empty voxel database as 'C:/Users/XXCANC~1/AppData/Local/Temp/DefaultCompany/cubiquity/219AD15A.vdb'
+[10:14:19, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
+[10:14:21, Info   ]: Creating empty voxel database as 'C:/Users/XXCANC~1/AppData/Local/Temp/DefaultCompany/cubiquity/187482EA.vdb'
+[10:15:05, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
+[10:15:05, Info   ]: Creating empty voxel database as 'C:/Users/XXCANC~1/AppData/Local/Temp/DefaultCompany/cubiquity/17371E44.vdb'
+[10:16:59, Info   ]: Resizing compressed data buffer to 288486bytes. This should only happen once
 ********************************************************************************
 *                             Shutting down Cubiquity                          *
 ********************************************************************************
