@@ -34,9 +34,7 @@ public class player : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {		
-		Debug.DrawRay (transform.position, transform.forward, Color.blue, 0, false);
-
+    void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<Rigidbody>().AddForce(transform.up * jumpHeight, ForceMode.Impulse);
@@ -85,8 +83,13 @@ public class player : MonoBehaviour {
             }
             transform.up = hit.normal;
 
-            Debug.DrawRay(transform.position, -transform.up, Color.blue, 0, false);
-            Debug.DrawRay(transform.position, transform.forward, Color.blue, 0, false);
         }
+
+        // transform.localEulerAngles = new Vector3(10, yRotation * 90, 10);
+        transform.Rotate(Vector3.right, Time.deltaTime);
+        Debug.DrawRay(transform.position, transform.forward, Color.blue, 0, false);
+        Debug.DrawRay(transform.position, -transform.up, Color.blue, 0, false);
+
+
     }
 }
