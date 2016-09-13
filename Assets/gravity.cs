@@ -46,12 +46,9 @@ public class gravity : MonoBehaviour {
             Debug.DrawRay(transform.position, average, Color.green);
             Vector3 up = -average.normalized;
             //--------------------------------------------------------------------------------
-            if (up != Vector3.zero)
-            {
-                Physics.gravity = -up * 10f;
-                transform.up = up;
-                Debug.DrawRay(transform.position, up, Color.blue, 0, false);
-            }
+            transform.up = up;
+            Debug.DrawRay(transform.position, up, Color.blue, 0, false);
+            Physics.gravity = -up * 10f;
         }
     }
 }

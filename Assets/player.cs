@@ -54,13 +54,11 @@ public class player : MonoBehaviour {
 
         // find forward
         Vector3 forward = (transform.position - camera.position);
-        Debug.DrawRay(transform.position, forward, Color.yellow);
-        Debug.DrawRay(transform.position, transform.localEulerAngles, Color.yellow);
-        /*forward = transform.InverseTransformDirection(forward); 
-        forward.y = 0; 
-        forward = transform.TransformDirection(forward); 
+        /*forward = transform.InverseTransformDirection(forward); */
+        //forward. = 0; 
+        //forward = transform.TransformDirection(forward); 
         // transform.forward = forward; 
- 
+ /*
 +
         // Quaternion rotation = new Quaternion(); 
         // rotation.SetLookRotation(forward, hit.normal); 
