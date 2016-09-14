@@ -1,0 +1,28 @@
+when u get out the good old hot glue gun, and get some crazy ideas
+introducing the cork cork, when one cork just isnt enough
+
+
+
+
+
+
+player in cave, dont know what is up. it sees the nearest 9 meshes around it, and if he jumps, he connects to it and uses its gravity. you can walk up the walls if they connect within the "9 tile" radius.
+
+
+
+
+
+make everything true, not generated
+find player position
+set all voxels in a specified range around player, which arent generated, and set its samplex value
+
+get the absolute value from x-128
+
+
+child should only collide with terrain, not with parent. 
+on all collisions, we invert the ray i have now, and point it to the place where the collision first happened. there, we find the normal off of the ground, and add this to our calculation(maybe weighted based on the distance).
+
+scrap capsule, go with ray to ground
+find out how 
+
+make it into deja vu meme
