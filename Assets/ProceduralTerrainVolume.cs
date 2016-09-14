@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 using Cubiquity;
 
 /**
@@ -54,24 +53,21 @@ public class ProceduralTerrainVolume : MonoBehaviour
 			{
 				for(int x = 0; x < width; x++)
 				{
-                    float simplexNoiseValue = 0f;
-                    for (int octave = 1; octave < 2; octave++)
-                    {
-                        float sampleX = (float)x * invRockScale / octave;
-                        float sampleY = (float)y * invRockScale / octave;
-                        float sampleZ = (float)z * invRockScale / octave;
-                        // thing aint declared out of here
-                        float simplexOctaved = SimplexNoise.Noise.Generate(sampleX, sampleY, sampleZ);
-                        simplexOctaved *= 5.0f;
-                        simplexOctaved = Mathf.Clamp(simplexNoiseValue, -0.5f, 0.5f);
-                        simplexOctaved += 0.5f;
-                        simplexOctaved *= 255;
-                        simplexNoiseValue += simplexOctaved;
-                    }
-                    
+                    // Make sure we don't have anything left in here from the previous voxel 
                     materialSet.weights[0] = 0;
                     materialSet.weights[1] = 0;
                     materialSet.weights[2] = 0;
+
+                    float sampleX = (float)x * invRockScale;
+                    float sampleY = (float)y * invRockScale;
+                    float sampleZ = (float)z * invRockScale;
+
+                    float simplexNoiseValue = SimplexNoise.Noise.Generate(sampleX, sampleY, sampleZ);
+                    simplexNoiseValue *= 5.0f;
+                    simplexNoiseValue = Mathf.Clamp(simplexNoiseValue, -0.5f, 0.5f);
+                    simplexNoiseValue += 0.5f;
+                    simplexNoiseValue *= 255;
+
                     materialSet.weights[2] = (byte)simplexNoiseValue;
 					
 					data.SetVoxel(x, y, z, materialSet);
