@@ -40,47 +40,12 @@ public class player : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame
-    void Update () {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetComponent<Rigidbody>().AddForce(transform.up * jumpHeight, ForceMode.Impulse);
-            Debug.Log("jump");
-        }
-	}
-
 	void FixedUpdate() {
 
-        // declarations
-        Transform camera = Camera.main.transform;
-		Rigidbody rb = GetComponent<Rigidbody> ();
 
-        
-
-        // find forward
-        Vector3 forward = (transform.position - camera.position);
-        /*forward = transform.InverseTransformDirection(forward); */
-        //forward. = 0; 
-        //forward = transform.TransformDirection(forward); 
-        // transform.forward = forward; 
- /*
-+
-        // Quaternion rotation = new Quaternion(); 
-        // rotation.SetLookRotation(forward, hit.normal); 
-        // transform.localRotation = rotation;*/ 
-
-        // change velocity
-        Vector3 vel = rb.velocity; // first we get the velocity
-		vel = transform.InverseTransformDirection (vel); // velocity is in world space, transform to local space
-		vel.x = Input.GetAxis ("Horizontal") * speed;
-		vel.z = Input.GetAxis ("Vertical") * speed;
-		vel = transform.TransformDirection (vel); // change vel back to world space
-        rb.velocity = vel;
-		Debug.DrawRay(transform.position, vel);
-
+        // find up using old method. 
         if (raytrace)
         {
-            // find up
             RaycastHit hit;
             Ray ray = new Ray(transform.position, -transform.up);
             Debug.DrawRay(transform.position, -transform.up);
@@ -92,8 +57,20 @@ public class player : MonoBehaviour {
 
         }
 
-        // transform.localEulerAngles = new Vector3(10, yRotation * 90, 10);
-        transform.Rotate(Vector3.right, Time.deltaTime);
+
+        //jump
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GetComponent<Rigidbody>().AddForce(transform.up * jumpHeight, ForceMode.Impulse);
+            Debug.Log("jump");
+        }
+
+        Vector3 cameraVector = Camera.main.transform.position - transform.position;
+        Quaternion newRotation = Quaternion.LookRotation(-cameraVector, Vector3.up);
+
+        newRotation.eulerAngles = new Vector3(0, newRotation.eulerAngles.y, 0);
+        transform.rotation = newRotation;
+
         Debug.DrawRay(transform.position, transform.forward, Color.blue, 0, false);
         Debug.DrawRay(transform.position, -transform.up, Color.blue, 0, false);
 
@@ -134,6 +111,16 @@ public class player : MonoBehaviour {
             Debug.DrawRay(transform.position, up, Color.cyan, 0, false);
             Physics.gravity = -up * gravityStrength;
         }
+
+        // change velocity
+        Rigidbody rb = GetComponent<Rigidbody>();
+        Vector3 vel = rb.velocity; // first we get the velocity
+        vel = transform.InverseTransformDirection(vel); // velocity is in world space, transform to local space
+        vel.x = Input.GetAxis("Horizontal") * speed;
+        vel.z = Input.GetAxis("Vertical") * speed;
+        vel = transform.TransformDirection(vel); // change vel back to world space
+        rb.velocity = vel; // assign velocity
+        Debug.DrawRay(transform.position, vel); // draw velocity ray
 
     }
 }

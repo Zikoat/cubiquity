@@ -11,7 +11,7 @@ public class testRotation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector3 relativePos = Camera.main.transform.position - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+        Quaternion rotation = Quaternion.LookRotation(-relativePos, Vector3.up);
         rotation.eulerAngles = new Vector3(0, rotation.eulerAngles.y, 0);
 
         transform.rotation = rotation;
